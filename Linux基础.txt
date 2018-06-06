@@ -1,0 +1,92 @@
+1.Linux安装
+Linux可以建立3个主分区和若干扩展分区，把/目录强制设置为主分区。
+还有SWAP分区，用于存放缓存文件，建议倍内存大小。
+
+2.Linux文件类型
+普通文件：C语言代码，shell脚本，二进制可执行文件（纯文本和二进制）
+目录文件：存储文件的唯一地方
+链接文件：指向同一文件或目录的文件
+特殊文件：系统外设相关的，通常在/dev下（块设备和字符设备）
+
+3.目录结构
+/boot：
+/bin:二进制文件，可以被普通用户使用
+/dev：硬件设备文件目录
+/etc：存放各种配置文件
+/etc/rc.d：启动的配置文件和脚本
+/root：系统管理员主目录
+/mnt：挂载其他文件系统
+/usr/doc：Linux文档
+
+4.Linux特殊文件
+/etc/passwd：用户数据库
+/etc/inittab：init的配置文件
+/etc/shadow：口令文件
+/proc/net：网络协议状态信息
+/proc/version：核心版本
+
+
+5.磁盘和文件空间
+fdisk：查看硬盘分区
+du：查看文件占用空间情况
+
+
+7.文件，目录
+7.1 ls/dir
+ls -l :查看文件详细信息
+-rw-r--r--
+第一个字符：表示文件类型（-：二进制文件；d：目录；l:链接文件）（目录：蓝色；执行文件：绿色；压缩文件：红色；二进制：白色；颜色配置文件/etc/DIR_COLORS）
+
+7.2 mkdir/rmdir（rm）
+mkdir -p：创建多个目录
+rmdir/rm：删除文件
+
+mv：移动文件（mv old new）
+
+pwd：显示当前工作目录
+
+8.文件显示
+cat
+tac
+more
+less
+
+umask:设置新建文件或文件夹的权限的掩码。（Linux用户新建文件666-2，新建目录777-2）
+rwx(r=4,w=2,x=1)（第一个属主权限u，第二个用户组权限g，第三个其他用户权限o）chmod(+,-,=)  对象（ugoa，a所有对象）
+
+chown:改变文件的属主
+
+chgrp：改变文件的所属组
+
+
+查找命令
+which filename：查找PATH路径的可执行文件
+
+whereis -bmsu keyword:把相关文件和目录都列出来
+
+
+locate filename：把相关文件和目录都列出来
+
+
+find [path] [参数] [keyword]：在指定路径查找文件
+
+ln:为文件建立一个同步的连接。
+ln -s 源文件 目标文件（-s：symbolic：ln保持链接文件的同步性，分为软连接和硬链接，都保持文件同步性）
+软连接：ln -s ** **
+硬链接：ln ** **
+
+
+用户和组管理
+useradd：添加用户
+passwd：修改密码
+userdel：删除用户
+su：切换用户身份
+
+
+
+启动服务
+service server-name start/stop/restart
+
+
+chkconfig
+
